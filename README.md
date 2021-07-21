@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Using Create React App to Build a Quiz App
+
+I built a simple React quiz! Check it out here [react-quiz-sample.netlify.app](https://react-quiz-sample.netlify.app/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
