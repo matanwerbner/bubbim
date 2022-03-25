@@ -1,5 +1,7 @@
 import styled, { createGlobalStyle } from "styled-components";
-import BGImage from './images/michelle-kim.jpg';
+
+import BGImage1 from "./images/Collage1.jpeg";
+import BGImage2 from "./images/Collage2.jpeg";
 
 export const GlobalStyle = createGlobalStyle`
     html {
@@ -7,60 +9,66 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background-image: url(${BGImage});
-        background-size: cover;
+        background-image: url(${BGImage1}), url(${BGImage2});
+        background-repeat: repeat-y;
+        background-size: 50% auto;
+        background-position: left top, right top;
         margin: 0;
         padding: 0 20px;
         display: flex;
         justify-content: center;
+         font-family: "Fredoka", sans-serif;
     }
 
     * {
         box-sizing: border-box;
-        font-family: 'Roboto', sans-serif;
+        direction: rtl;
     }
 `;
 
 export const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  > p {
+    color: #fff;
+  }
 
-    > p {
-        color: #fff;
-    }
+  .score {
+    color: #fff;
+    font-size: 2rem;
+    margin: 0;
+  }
 
-    .score {
-        color: #fff;
-        font-size: 2rem;
-        margin: 0;
-    }
+  h1 {
+    background-image: linear-gradient(180deg, #fff, #87f1ff);
+    background-size: 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    filter: drop-shadow(2px 2px #0085a3);
+    font-size: 70px;
+    text-align: center;
+    margin: 20px;
+  }
 
-    h1 {
-        background-image: linear-gradient(180deg, #fff, #87f1ff);
-        background-size: 100%;
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        -moz-background-clip: text;
-        -moz-text-fill-color: transparent;
-        filter: drop-shadow(2px 2px #0085a3);
-        font-size: 70px;
-        text-align: center;
-        margin: 20px;
-    }
+  .start,
+  .next {
+    cursor: pointer;
+    background: linear-gradient(180deg, #fff, #ffcc91);
+    border: 2px solid #d38558;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+    height: 40px;
+    border-radius: 10px;
+    padding: 0 40px;
+  }
 
-    .start, .next {
-        cursor: pointer;
-        background: linear-gradient(180deg, #fff, #ffcc91);
-        border: 2px solid #d38558;
-        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
-        height: 40px; 
-        border-radius: 10px;
-        padding: 0 40px;
-    }
-
-    .start {
-        max-width: 200px;
-    }
+  .start {
+    max-width: 200px;
+  }
 `;

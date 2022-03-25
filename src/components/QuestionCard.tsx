@@ -1,48 +1,52 @@
-import React from 'react';
+import React from "react";
 
 //types
-import { AnswerObject } from '../App';
+import { AnswerObject } from "../App";
 
-import { Wrapper, ButtonWrapper } from './QuestionCard.styles';
+import { Wrapper, ButtonWrapper } from "./QuestionCard.styles";
 
 type Props = {
-    question: string;
-    answers: string[];
-    callback: (e: React.MouseEvent<HTMLButtonElement>) => void;
-    userAnswer: AnswerObject | any; //can be undefined but set to any for errors
-    questionNr: number;
-    totalQuestions: number;
-}
+  question: string;
+  answers: string[];
+  callback: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  userAnswer: AnswerObject | any; //can be undefined but set to any for errors
+  questionNr: number;
+  totalQuestions: number;
+};
 
-const QuestionCard: React.FC<Props> = ({ 
-    question, 
-    answers, 
-    callback, 
-    userAnswer, 
-    questionNr, 
-    totalQuestions
- }) => (
-    <Wrapper>Question Card
-        <p className="number">
-            Question: {questionNr} / {totalQuestions}
-        </p>
+const QuestionCard: React.FC<Props> = ({
+  question,
+  answers,
+  callback,
+  userAnswer,
+  questionNr,
+  totalQuestions,
+}) => (
+  <Wrapper>
+    <p className='number'>
+      שאלה: {questionNr} / {totalQuestions}
+    </p>
 
-        <p dangerouslySetInnerHTML={{ __html: question }} />
-        
-        <div>
-            {answers.map((answer) => (
-                <ButtonWrapper 
-                    key={answer}
-                    correct={userAnswer?.correctAnswer === answer}
-                    userClicked={userAnswer?.answer === answer}
-                >
-                    <button disabled={userAnswer ? true : false} value={answer} onClick={callback}>
-                        <span dangerouslySetInnerHTML={{ __html: answer }} />
-                    </button>
-                </ButtonWrapper>
-            ))}
-        </div>
-    </Wrapper>
+    <p dangerouslySetInnerHTML={{ __html: question }} />
+
+    <div>
+      {answers.map(answer => (
+        <ButtonWrapper
+          key={answer}
+          correct={userAnswer?.correctAnswer === answer}
+          userClicked={userAnswer?.answer === answer}
+        >
+          <button
+            disabled={userAnswer ? true : false}
+            value={answer}
+            onClick={callback}
+          >
+            <span dangerouslySetInnerHTML={{ __html: answer }} />
+          </button>
+        </ButtonWrapper>
+      ))}
+    </div>
+  </Wrapper>
 );
 
 export default QuestionCard;
